@@ -2,11 +2,13 @@
   "manifest_version": 3,
   "name": "Course Feedback Fast",
   "short_name": "Feedback Fast",
-  "version": "1.0.0",
+  "version": "2.1.0",
+  "minimum_chrome_version": "102",
   "description": "Fast, privacy-first automation for repetitive university course-feedback forms.",
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_title": "Course Feedback Fast",
     "default_popup": "popup.html"
@@ -15,16 +17,5 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "run_at": "document_idle"
-    }
-  ]
+  }
 }
